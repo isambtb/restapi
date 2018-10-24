@@ -32,9 +32,10 @@ public class ContainerPackagedProduct {
     private Set<AsSpecializedKind> asSpecializedKinds= new HashSet<>();
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "product_as_content_sub", joinColumns = @JoinColumn(name = "container_package_product_id"))
+    @CollectionTable(name = "product_as_content_sub", joinColumns = @JoinColumn(name = "container_as_content_sub_id"))
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<AsContentSub> asContentSub = new HashSet<>();
+    private Set<AsContentSub> asContentSub= new HashSet<>();
+
 
     public Long getId() {
         return id;
