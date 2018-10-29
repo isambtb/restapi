@@ -1,9 +1,11 @@
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Manufacturer.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/IndicationObservationCriterion.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ContainerPackageProductSub.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/controllers/MedicinalProductControllerp.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Substance.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Characteristic.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/FormCode.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/repositories/MedicinalProductPaginableRepository.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Policy.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Quantity.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/AsContent.java
@@ -27,5 +29,6 @@
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Route.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Code.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/AsSpecializedKind.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/services/MedicinalProductService.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ValuedUnitItem.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/MarketingAct.java

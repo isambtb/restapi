@@ -5,9 +5,13 @@ import com.bpm.medicament.app.domain.MedicinalProduct;
 import com.bpm.medicament.app.domain.ResourceNotFoundException;
 import com.bpm.medicament.app.repositories.MedicinalProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.*;
 
@@ -38,7 +42,12 @@ public class MedicinalProductController {
         return  medicinalProductRepository.findAll();
     }
 
+    @RequestMapping("/pages/{pageno}/{psize}")
+    @ResponseBody
+    public List<MedicinalProduct> getAllPosts(@PathVariable("pageno") int pageno, @PathVariable("psize") int psize, HttpServletRequest req, HttpServletResponse res) throws ServletException {
 
+        return  medicinalProductRepository.getAll(new PageRequest(pageno,psize));
+    }
 
     // Update a Note
     @PutMapping("/{id}")
