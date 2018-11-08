@@ -17,11 +17,13 @@ public class ContainerPackageProductSub{
 
     private String codeSystem;
 
-    public long getId() {
+    private String name;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,6 +41,14 @@ public class ContainerPackageProductSub{
 
     public void setCodeSystem(String codeSystem) {
         this.codeSystem = codeSystem;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 
