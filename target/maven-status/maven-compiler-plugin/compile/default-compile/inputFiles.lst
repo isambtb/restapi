@@ -7,12 +7,14 @@
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/FormCode.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/repositories/MedicinalProductPaginableRepository.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Policy.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/DocumentCharacteristic.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Quantity.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/AsContent.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ContainerPackagedProduct.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Translation.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ValuedIem.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/AppApplication.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Document.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Ingredient.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Equivalent.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/GeneralizedMaterialKind.java

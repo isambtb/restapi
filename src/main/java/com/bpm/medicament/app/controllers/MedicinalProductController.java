@@ -43,6 +43,7 @@ public class MedicinalProductController {
     }
 
     @RequestMapping("/pages/{pageno}/{psize}")
+
     @ResponseBody
     public List<MedicinalProduct> getAllPosts(@PathVariable("pageno") int pageno, @PathVariable("psize") int psize, HttpServletRequest req, HttpServletResponse res) throws ServletException {
 

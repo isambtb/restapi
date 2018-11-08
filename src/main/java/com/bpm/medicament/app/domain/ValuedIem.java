@@ -27,7 +27,7 @@ public class ValuedIem {
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "valued_item_unity", joinColumns = @JoinColumn(name = "valued_item_id"))
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<ValuedUnitItem> valuedUnitItemes;
+    private Set<ValuedUnitItem> valuedUnitItems;
 
 
     public Long getId() {
@@ -78,11 +78,11 @@ public class ValuedIem {
         this.effectiveTimeHeigh = effectiveTimeHeigh;
     }
 
-    public Set<ValuedUnitItem> getValuedUnitItemes() {
-        return valuedUnitItemes;
+    public Set<ValuedUnitItem> getValuedUnitItems() {
+        return valuedUnitItems;
     }
 
-    public void setValuedUnitItemes(Set<ValuedUnitItem> valuedUnitItemes) {
-        this.valuedUnitItemes = valuedUnitItemes;
+    public void setValuedUnitItems(Set<ValuedUnitItem> valuedUnitItems) {
+        this.valuedUnitItems = valuedUnitItems;
     }
 }

@@ -34,10 +34,6 @@ public class AsContentSub {
     @ManyToOne(cascade = CascadeType.ALL)
     private MarketingAct marketingAct;
 
-    @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "as_content_valued_Items", joinColumns = @JoinColumn(name = "as_content_sub_id"))
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<ValuedIem>   valuedIems = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -85,13 +81,5 @@ public class AsContentSub {
 
     public void setMarketingAct(MarketingAct marketingAct) {
         this.marketingAct = marketingAct;
-    }
-
-    public Set<ValuedIem> getValuedIems() {
-        return valuedIems;
-    }
-
-    public void setValuedIems(Set<ValuedIem> valuedIems) {
-        this.valuedIems = valuedIems;
     }
 }

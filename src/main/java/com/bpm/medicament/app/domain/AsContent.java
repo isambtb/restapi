@@ -58,4 +58,5 @@ public class AsContent {
     public void setCharacteristics(Set<Characteristic> characteristics) {
         this.characteristics = characteristics;
     }
+
 }

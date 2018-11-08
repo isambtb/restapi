@@ -32,9 +32,20 @@ public class ContainerPackagedProduct {
     private Set<AsSpecializedKind> asSpecializedKinds= new HashSet<>();
 
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "product_as_content_sub", joinColumns = @JoinColumn(name = "container_as_content_sub_id"))
+    @CollectionTable(name = "product_as_content_sub", joinColumns = @JoinColumn(name = "container_package_product_id"))
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<AsContentSub> asContentSub= new HashSet<>();
+    private Set<AsContentSub> asContentSub = new HashSet<>();
+
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "as_content_documents", joinColumns = @JoinColumn(name = "as_content_id"))
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Document> documents= new HashSet<>();
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @CollectionTable(name = "as_content_valued_Items", joinColumns = @JoinColumn(name = "as_content_id"))
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<ValuedIem>  valuedItems = new HashSet<>();
 
 
     public Long getId() {
@@ -91,5 +102,21 @@ public class ContainerPackagedProduct {
 
     public void setAsContentSub(Set<AsContentSub> asContentSub) {
         this.asContentSub = asContentSub;
+    }
+
+    public Set<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(Set<Document> documents) {
+        this.documents = documents;
+    }
+
+    public Set<ValuedIem> getValuedItems() {
+        return valuedItems;
+    }
+
+    public void setValuedItems(Set<ValuedIem> valuedItems) {
+        this.valuedItems = valuedItems;
     }
 }
