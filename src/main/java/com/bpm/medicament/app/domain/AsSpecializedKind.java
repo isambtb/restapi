@@ -17,7 +17,7 @@ public class AsSpecializedKind {
 
     private String codeSystem;
 
-    private String desplayName;
+    private String displayName;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private  GeneralizedMaterialKind generalizedMaterialKind;
@@ -46,12 +46,12 @@ public class AsSpecializedKind {
         this.codeSystem = codeSystem;
     }
 
-    public String getDesplayName() {
-        return desplayName;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setDesplayName(String desplayName) {
-        this.desplayName = desplayName;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public GeneralizedMaterialKind getGeneralizedMaterialKind() {

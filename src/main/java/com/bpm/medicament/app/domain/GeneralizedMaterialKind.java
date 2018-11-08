@@ -20,7 +20,7 @@ public class GeneralizedMaterialKind {
 
     private String codeSystem;
 
-    private String desplayName;
+    private String displayName;
 
     @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "generalizedMaterialKind_translations", joinColumns = @JoinColumn(name = "generalizedMaterialKind_code_id"))
@@ -51,12 +51,12 @@ public class GeneralizedMaterialKind {
         this.codeSystem = codeSystem;
     }
 
-    public String getDesplayName() {
-        return desplayName;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setDesplayName(String desplayName) {
-        this.desplayName = desplayName;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public Set<Translation> getTranslations() {
