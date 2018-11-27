@@ -8,6 +8,7 @@
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/repositories/MedicinalProductPaginableRepository.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Policy.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/DocumentCharacteristic.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/controllers/MedicinalProductdto.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Quantity.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/AsContent.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ContainerPackagedProduct.java
@@ -24,9 +25,11 @@
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ClinicalSituationCriterion.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Issue.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ResourceNotFoundException.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/services/MedicinalProductDTO.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/ConsumedIn.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/repositories/MedicinalProductRepository.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/controllers/MedicinalProductController.java
+/home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/config/MappingConfig.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/BooleanCharacteristic.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Route.java
 /home/issam/Desktop/dev/app/src/main/java/com/bpm/medicament/app/domain/Code.java
