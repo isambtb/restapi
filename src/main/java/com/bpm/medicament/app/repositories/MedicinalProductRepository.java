@@ -22,10 +22,7 @@ public interface MedicinalProductRepository extends JpaRepository<MedicinalProdu
     @Query("select m from MedicinalProduct m  where m.code = :code")
     List<MedicinalProduct> getByCode(@Param("code") String code);
 
-    @Query("select m.code, m.codeSystem, m.medicinalProductName, m.isValidated from MedicinalProduct m")
-    List getAllMedicinalProducts();
-
-    @Query("select new MedicinalProduct(m.code, m.codeSystem, m.medicinalProductName, m.isValidated) from MedicinalProduct m")
+    @Query("select new MedicinalProduct(m.id, m.code, m.codeSystem, m.medicinalProductName, m.isValidated) from MedicinalProduct m")
     List getMedicinalProducts();
 
 

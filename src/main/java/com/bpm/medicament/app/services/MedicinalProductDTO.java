@@ -2,17 +2,18 @@ package com.bpm.medicament.app.services;
 
 public class MedicinalProductDTO {
 
-    private String _id;
+    private String id;
     private String code;
     private String codeSystem;
     private boolean isValidated;
 
-    public String get_id() {
-        return _id;
+
+    public String getId() {
+        return id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCode() {

@@ -16,20 +16,21 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "medicament")
+@Table(name = "medicinal_products")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class MedicinalProduct implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long _id;
+    private Long id;
 
     private long versionNumber;
 
     private String createdOn;
 
     private String updatedOn;
+
     private String updatedBy;
 
     @ColumnDefault("false")
@@ -69,20 +70,21 @@ public class MedicinalProduct implements Serializable {
 
     }
 
-    public MedicinalProduct(String code, String codeSystem, String medicinalProductName, boolean isValidated){
-      this.code =  code;
-      this.codeSystem = codeSystem;
-      this.medicinalProductName = medicinalProductName;
-      this.isValidated = isValidated;
+    public MedicinalProduct(Long id, String code, String codeSystem, String medicinalProductName, boolean isValidated){
+        this.id = id;
+        this.code =  code;
+        this.codeSystem = codeSystem;
+        this.medicinalProductName = medicinalProductName;
+        this.isValidated = isValidated;
     }
 
 
-    public Long get_id() {
-        return _id;
+    public Long getId() {
+        return id;
     }
 
-    public void set_id(Long _id) {
-        this._id = _id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public long getVersionNumber() {

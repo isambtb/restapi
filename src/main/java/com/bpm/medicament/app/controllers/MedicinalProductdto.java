@@ -2,17 +2,18 @@ package com.bpm.medicament.app.controllers;
 
 public class MedicinalProductdto {
 
-    private Long _id;
+    private Long id;
     private String code;
     private String codeSystem;
     private String medicinalProductName;
+    private boolean isValidated;
 
-    public Long get_id() {
-        return _id;
+    public Long getId() {
+        return id;
     }
 
-    public void set_id(Long _id) {
-        this._id = _id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCode() {
@@ -37,5 +38,13 @@ public class MedicinalProductdto {
 
     public void setMedicinalProductName(String medicinalProductName) {
         this.medicinalProductName = medicinalProductName;
+    }
+
+    public boolean isValidated() {
+        return isValidated;
+    }
+
+    public void setValidated(boolean validated) {
+        isValidated = validated;
     }
 }
