@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -59,4 +60,17 @@ public class AsContent {
         this.characteristics = characteristics;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        AsContent asContent = (AsContent) o;
+        return Objects.equals(quantity, asContent.quantity) &&
+                Objects.equals(containerPackagedProduct, asContent.containerPackagedProduct) &&
+                Objects.equals(characteristics, asContent.characteristics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(quantity, containerPackagedProduct, characteristics);
+    }
 }

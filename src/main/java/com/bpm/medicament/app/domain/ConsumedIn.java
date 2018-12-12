@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -48,5 +49,18 @@ public class ConsumedIn {
 
     public void setIssues(Set<Issue> issues) {
         this.issues = issues;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        ConsumedIn that = (ConsumedIn) o;
+        return Objects.equals(routes, that.routes) &&
+                Objects.equals(issues, that.issues);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(routes, issues);
     }
 }

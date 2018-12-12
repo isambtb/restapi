@@ -2,17 +2,14 @@ package com.bpm.medicament.app.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.LazyCollection;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -37,6 +34,9 @@ public class MedicinalProduct implements Serializable {
     private boolean isValidated;
 
     private String isValidatedBy;
+
+    @ColumnDefault("true")
+    private boolean isLastVersion;
 
 
     @NotBlank
@@ -70,12 +70,16 @@ public class MedicinalProduct implements Serializable {
 
     }
 
-    public MedicinalProduct(Long id, String code, String codeSystem, String medicinalProductName, boolean isValidated){
+
+    public MedicinalProduct (Long id, String code, String codeSystem, String medicinalProductName, boolean isValidated,
+                             long versionNumber, String createdOn){
         this.id = id;
         this.code =  code;
         this.codeSystem = codeSystem;
         this.medicinalProductName = medicinalProductName;
         this.isValidated = isValidated;
+        this.versionNumber = versionNumber;
+        this.createdOn = createdOn;
     }
 
 
@@ -197,5 +201,50 @@ public class MedicinalProduct implements Serializable {
 
     public void setConsumedIn(ConsumedIn consumedIn) {
         this.consumedIn = consumedIn;
+    }
+
+    public boolean isLastVersion() {
+        return isLastVersion;
+    }
+
+    public void setIsLastVersion(boolean lastVersion) {
+        isLastVersion = lastVersion;
+    }
+
+    /*@Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        final MedicinalProduct other = (MedicinalProduct) obj;
+        if (
+                medicinalProductName.equals(other.getMedicinalProductName())
+                && code.equals(other.getCode())
+                && codeSystem.equals(other.getCodeSystem())
+        ){
+            return  true;
+        }
+
+        return false;
+    }*/
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        MedicinalProduct that = (MedicinalProduct) o;
+        return
+                Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(medicinalProductName, that.medicinalProductName) &&
+                Objects.equals(manufacturer,  that.manufacturer) &&
+                Objects.equals(asContent,  that.asContent) &&
+                Objects.equals(marketingAct,  that.marketingAct) &&
+                Objects.equals(ingredients, that.ingredients);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, versionNumber, createdOn, updatedOn, updatedBy, isValidated, isValidatedBy, isLastVersion, code, codeSystem, medicinalProductName, manufacturer, ingredients, asContent, marketingAct, consumedIn);
     }
 }

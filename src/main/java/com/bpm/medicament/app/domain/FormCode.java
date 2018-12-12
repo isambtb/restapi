@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -66,5 +67,20 @@ public class FormCode {
 
     public void setDesplayName(String desplayName) {
         this.desplayName = desplayName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        FormCode formCode = (FormCode) o;
+        return Objects.equals(code, formCode.code) &&
+                Objects.equals(codeSystem, formCode.codeSystem) &&
+                Objects.equals(desplayName, formCode.desplayName) &&
+                Objects.equals(translations, formCode.translations);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, desplayName, translations);
     }
 }

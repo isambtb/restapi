@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "policy")
@@ -51,5 +52,19 @@ public class Policy {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Policy policy = (Policy) o;
+        return Objects.equals(code, policy.code) &&
+                Objects.equals(codeSystem, policy.codeSystem) &&
+                Objects.equals(displayName, policy.displayName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, displayName);
     }
 }

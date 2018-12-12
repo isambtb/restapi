@@ -4,6 +4,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name ="indication_observation_criterion")
@@ -81,5 +82,22 @@ public class IndicationObservationCriterion {
 
     public void setValueDisplayName(String valueDisplayName) {
         this.valueDisplayName = valueDisplayName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        IndicationObservationCriterion that = (IndicationObservationCriterion) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(valueCode, that.valueCode) &&
+                Objects.equals(valueCodeSystem, that.valueCodeSystem) &&
+                Objects.equals(valueDisplayName, that.valueDisplayName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, displayName, valueCode, valueCodeSystem, valueDisplayName);
     }
 }

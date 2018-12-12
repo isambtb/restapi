@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -86,5 +87,22 @@ public class Route {
 
     public void setIndicationObservationCriterion(IndicationObservationCriterion indicationObservationCriterion) {
         this.indicationObservationCriterion = indicationObservationCriterion;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Route route = (Route) o;
+        return Objects.equals(code, route.code) &&
+                Objects.equals(codeSystem, route.codeSystem) &&
+                Objects.equals(displayName, route.displayName) &&
+                Objects.equals(translations, route.translations) &&
+                Objects.equals(doseQuantity, route.doseQuantity) &&
+                Objects.equals(indicationObservationCriterion, route.indicationObservationCriterion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, displayName, translations, doseQuantity, indicationObservationCriterion);
     }
 }

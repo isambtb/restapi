@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "Boolean_characteristic")
@@ -128,5 +129,28 @@ public class BooleanCharacteristic {
 
     public void setForfait(boolean forfait) {
         isForfait = forfait;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        BooleanCharacteristic that = (BooleanCharacteristic) o;
+        return extMedMgt == that.extMedMgt &&
+                isPerfusion == that.isPerfusion &&
+                isMultidose == that.isMultidose &&
+                isWaterScale == that.isWaterScale &&
+                isSoluble == that.isSoluble &&
+                isPartionable == that.isPartionable &&
+                isFormulary == that.isFormulary &&
+                inUse == that.inUse &&
+                isSpeciality == that.isSpeciality &&
+                prescriptionRequired == that.prescriptionRequired &&
+                isNarotic == that.isNarotic &&
+                isForfait == that.isForfait;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(extMedMgt, isPerfusion, isMultidose, isWaterScale, isSoluble, isPartionable, isFormulary, inUse, isSpeciality, prescriptionRequired, isNarotic, isForfait);
     }
 }

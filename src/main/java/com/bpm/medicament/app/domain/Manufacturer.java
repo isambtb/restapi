@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "manufacturer")
@@ -51,5 +52,19 @@ public class Manufacturer {
 
     public void setManufacturerName(String manufacturerName) {
         this.manufacturerName = manufacturerName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Manufacturer that = (Manufacturer) o;
+        return Objects.equals(manufacturerCodeSystem, that.manufacturerCodeSystem) &&
+                Objects.equals(manufacturerExtention, that.manufacturerExtention) &&
+                Objects.equals(manufacturerName, that.manufacturerName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, manufacturerCodeSystem, manufacturerExtention, manufacturerName);
     }
 }

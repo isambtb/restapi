@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -95,5 +96,23 @@ public class Characteristic {
 
     public void setDisplayName(String displayName) {
         this.displayName = displayName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Characteristic that = (Characteristic) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(valueCode, that.valueCode) &&
+                Objects.equals(valueCodeSystem, that.valueCodeSystem) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(quantity, that.quantity);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, valueCode, valueCodeSystem, displayName, type, quantity);
     }
 }

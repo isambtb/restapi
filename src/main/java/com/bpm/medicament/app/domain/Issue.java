@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -55,5 +56,19 @@ public class Issue {
 
     public void setClinicalSituationCriterions(Set<ClinicalSituationCriterion> clinicalSituationCriterions) {
         this.clinicalSituationCriterions = clinicalSituationCriterions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Issue issue = (Issue) o;
+        return Objects.equals(code, issue.code) &&
+                Objects.equals(codeSystem, issue.codeSystem) &&
+                Objects.equals(clinicalSituationCriterions, issue.clinicalSituationCriterions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, clinicalSituationCriterions);
     }
 }

@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name ="clinical_situation_criterion")
@@ -59,5 +60,21 @@ public class ClinicalSituationCriterion {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClinicalSituationCriterion that = (ClinicalSituationCriterion) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, displayName, type);
     }
 }

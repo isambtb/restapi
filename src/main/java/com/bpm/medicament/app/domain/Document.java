@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -72,5 +73,21 @@ public class Document {
 
     public void setCharacteristics(Set<DocumentCharacteristic> characteristics) {
         this.characteristics = characteristics;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Document document = (Document) o;
+        return Objects.equals(code, document.code) &&
+                Objects.equals(codeSystem, document.codeSystem) &&
+                Objects.equals(title, document.title) &&
+                Objects.equals(effectiveTimeLow, document.effectiveTimeLow) &&
+                Objects.equals(characteristics, document.characteristics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, title, effectiveTimeLow, characteristics);
     }
 }

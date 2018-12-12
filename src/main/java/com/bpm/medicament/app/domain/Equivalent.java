@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "equivalent")
@@ -50,5 +51,19 @@ public class Equivalent implements Serializable {
 
     public void setDiaplayName(String diaplayName) {
         this.diaplayName = diaplayName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Equivalent that = (Equivalent) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(diaplayName, that.diaplayName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, diaplayName);
     }
 }

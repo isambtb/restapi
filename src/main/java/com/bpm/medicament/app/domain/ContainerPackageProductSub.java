@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "container_package_product_sub")
@@ -49,6 +50,20 @@ public class ContainerPackageProductSub{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        ContainerPackageProductSub that = (ContainerPackageProductSub) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, name);
     }
 }
 

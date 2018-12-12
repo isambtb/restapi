@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -85,5 +86,23 @@ public class Quantity {
 
     public void setdDisplayName(String dDisplayName) {
         this.dDisplayName = dDisplayName;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Quantity quantity = (Quantity) o;
+        return Objects.equals(nValue, quantity.nValue) &&
+                Objects.equals(nUnit, quantity.nUnit) &&
+                Objects.equals(nDisplayName, quantity.nDisplayName) &&
+                Objects.equals(dValue, quantity.dValue) &&
+                Objects.equals(dUnit, quantity.dUnit) &&
+                Objects.equals(dDisplayName, quantity.dDisplayName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nValue, nUnit, nDisplayName, dValue, dUnit, dDisplayName);
     }
 }

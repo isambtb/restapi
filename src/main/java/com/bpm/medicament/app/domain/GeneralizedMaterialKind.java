@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -65,6 +66,21 @@ public class GeneralizedMaterialKind {
 
     public void setTranslations(Set<Translation> translations) {
         this.translations = translations;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        GeneralizedMaterialKind that = (GeneralizedMaterialKind) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(translations, that.translations);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, displayName, translations);
     }
 }
 

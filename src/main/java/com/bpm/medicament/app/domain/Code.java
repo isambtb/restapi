@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "code")
@@ -41,4 +42,16 @@ public class Code {
         this.codeSystem = codeSystem;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Code code1 = (Code) o;
+        return Objects.equals(code, code1.code) &&
+                Objects.equals(codeSystem, code1.codeSystem);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem);
+    }
 }

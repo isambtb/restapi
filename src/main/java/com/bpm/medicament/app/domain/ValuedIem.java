@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -84,5 +85,22 @@ public class ValuedIem {
 
     public void setValuedUnitItems(Set<ValuedUnitItem> valuedUnitItems) {
         this.valuedUnitItems = valuedUnitItems;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        ValuedIem valuedIem = (ValuedIem) o;
+        return Objects.equals(code, valuedIem.code) &&
+                Objects.equals(codeSystem, valuedIem.codeSystem) &&
+                Objects.equals(diplayName, valuedIem.diplayName) &&
+                Objects.equals(effectiveTimeLow, valuedIem.effectiveTimeLow) &&
+                Objects.equals(effectiveTimeHeigh, valuedIem.effectiveTimeHeigh) &&
+                Objects.equals(valuedUnitItems, valuedIem.valuedUnitItems);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, diplayName, effectiveTimeLow, effectiveTimeHeigh, valuedUnitItems);
     }
 }

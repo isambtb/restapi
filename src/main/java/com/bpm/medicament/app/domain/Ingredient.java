@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -56,5 +57,19 @@ public class Ingredient implements Serializable {
 
     public void setIngredientSubstance(Substance ingredientSubstance) {
         this.ingredientSubstance = ingredientSubstance;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Ingredient that = (Ingredient) o;
+        return Objects.equals(classCode, that.classCode) &&
+                Objects.equals(quantity, that.quantity) &&
+                Objects.equals(ingredientSubstance, that.ingredientSubstance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(classCode, quantity, ingredientSubstance);
     }
 }

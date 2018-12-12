@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -90,5 +91,23 @@ public class DocumentCharacteristic {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        DocumentCharacteristic that = (DocumentCharacteristic) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(valueCode, that.valueCode) &&
+                Objects.equals(valueCodeSystem, that.valueCodeSystem) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(type, that.type) &&
+                Objects.equals(quantity, that.quantity);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, valueCode, valueCodeSystem, displayName, type, quantity);
     }
 }

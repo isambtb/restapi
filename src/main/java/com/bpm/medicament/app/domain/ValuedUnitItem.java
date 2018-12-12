@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "valued_init_item")
@@ -71,4 +72,20 @@ public class ValuedUnitItem {
     public void setFactorNumber(String factorNumber) {
         this.factorNumber = factorNumber;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        ValuedUnitItem that = (ValuedUnitItem) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(currency, that.currency) &&
+                Objects.equals(value, that.value) &&
+                Objects.equals(factorNumber, that.factorNumber);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, currency, value, factorNumber);
+    }
 }
+

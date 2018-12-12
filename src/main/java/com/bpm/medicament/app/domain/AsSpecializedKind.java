@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "as_specialized_kind")
@@ -60,5 +61,20 @@ public class AsSpecializedKind {
 
     public void setGeneralizedMaterialKind(GeneralizedMaterialKind generalizedMaterialKind) {
         this.generalizedMaterialKind = generalizedMaterialKind;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        AsSpecializedKind that = (AsSpecializedKind) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(displayName, that.displayName) &&
+                Objects.equals(generalizedMaterialKind, that.generalizedMaterialKind);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, displayName, generalizedMaterialKind);
     }
 }

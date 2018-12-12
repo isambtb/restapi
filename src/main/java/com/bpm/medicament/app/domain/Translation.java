@@ -3,6 +3,7 @@ package com.bpm.medicament.app.domain;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "translation")
@@ -49,5 +50,19 @@ public class Translation {
 
     public void setDesplayName(String desplayName) {
         this.desplayName = desplayName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        Translation that = (Translation) o;
+        return Objects.equals(code, that.code) &&
+                Objects.equals(codeSystem, that.codeSystem) &&
+                Objects.equals(desplayName, that.desplayName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(code, codeSystem, desplayName);
     }
 }
