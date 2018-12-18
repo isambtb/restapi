@@ -43,6 +43,14 @@ public class MedicinalProductController {
         return medicinalProductService.saveMp(medicinalProduct);
     }
 
+    //
+    // Create a new Medicinal Product version if there is some changes
+    @PostMapping("/update-pharmacist")
+    public MedicinalProduct pharmacistMedicinalProduct(@Valid @RequestBody MedicinalProduct medicinalProduct) {
+        return medicinalProductService.saveMp(medicinalProduct);
+    }
+
+
     // Get a Single MedicinalProduct
     @GetMapping("/{id}")
     public MedicinalProduct getMedicinalProductById(@PathVariable(value = "id") Long medicinalProductId) {
